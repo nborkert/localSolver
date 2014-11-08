@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"os"
 	"fmt"
+	"solver"
 )
 
 func main() {
@@ -18,6 +19,8 @@ func main() {
 	scanner.Split(bufio.ScanLines)
 
 	for scanner.Scan() {
-		fmt.Println(scanner.Text())
+		newLine := scanner.Text()
+		fmt.Println(newLine)
+		solver.AddPlayer(newLine)
 	}
 }
