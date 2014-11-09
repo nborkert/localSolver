@@ -26,5 +26,7 @@ func main() {
 		solver.AddPlayerToPopulation(player)
 		fmt.Printf("Added player\n")
 	}
+	allPlayers := solver.CreatePlayersArrays()
+	fmt.Printf("All Players = %v\n", allPlayers)
 	solver.CreateRosters()
 }
