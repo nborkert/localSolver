@@ -17,13 +17,14 @@ func main() {
 
 	scanner := bufio.NewScanner(file)
 	scanner.Split(bufio.ScanLines)
-	
+
 	for scanner.Scan() {
 		newLine := scanner.Text()
 		fmt.Println(newLine)
 		player := solver.CreatePlayer(newLine)
-		fmt.Printf("Created player %v", player)
+		fmt.Printf("Created player %v\n", player)
 		solver.AddPlayerToPopulation(player)
-		fmt.Printf("Added player")
+		fmt.Printf("Added player\n")
 	}
+	solver.CreateRosters()
 }
