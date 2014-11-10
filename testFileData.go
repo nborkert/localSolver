@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/testFile.txt")
+	file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/simpleTestFile.txt")
 	if err != nil {
 		panic(err)
 	}
@@ -20,13 +20,17 @@ func main() {
 
 	for scanner.Scan() {
 		newLine := scanner.Text()
-		fmt.Println(newLine)
+//		fmt.Println(newLine)
 		player := solver.CreatePlayer(newLine)
-		fmt.Printf("Created player %v\n", player)
+//		fmt.Printf("Created player %v\n", player)
 		solver.AddPlayerToPopulation(player)
-		fmt.Printf("Added player\n")
+//		fmt.Printf("Added player\n")
 	}
 	allPlayers := solver.CreatePlayersArrays()
-	fmt.Printf("All Players = %v\n", allPlayers)
-	solver.CreateRosters()
+	if allPlayers == nil {
+		fmt.Println("ERROR")
+	}
+//	fmt.Printf("All Players = %v\n", allPlayers)
+	winningRoster := solver.CreateRosters()
+	fmt.Printf("Winning roster is %v\n", winningRoster)
 }
