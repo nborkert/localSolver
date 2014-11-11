@@ -5,6 +5,7 @@ import (
 	"os"
 	"fmt"
 	"solver"
+	"time"
 )
 
 func main() {
@@ -31,6 +32,9 @@ func main() {
 		fmt.Println("ERROR")
 	}
 //	fmt.Printf("All Players = %v\n", allPlayers)
+	startTime := time.Now()
 	winningRoster := solver.CreateRosters()
+	elapsed := time.Since(startTime)
 	fmt.Printf("Winning roster is %v\n", winningRoster)
+	fmt.Printf("Time required to find winning roster = %v\n", elapsed)
 }
