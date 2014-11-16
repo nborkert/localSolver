@@ -6,10 +6,22 @@ import (
 	"fmt"
 	"solver"
 	"time"
+	"runtime"
 )
 
 func main() {
-	file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/simpleTestFile.txt")
+	runtime.GOMAXPROCS(runtime.NumCPU())
+	fmt.Printf("CPUS = %v\n", runtime.NumCPU())
+
+//	file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/simpleTestFile.txt")
+
+	//file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/output_top5pts.txt")
+
+
+//	file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/dirt.txt")
+
+	file, err := os.Open("/Users/ndborkedaunt/Downloads/google-compute-engine/in.txt")
+
 	if err != nil {
 		panic(err)
 	}
@@ -25,13 +37,11 @@ func main() {
 		player := solver.CreatePlayer(newLine)
 //		fmt.Printf("Created player %v\n", player)
 		solver.AddPlayerToPopulation(player)
-//		fmt.Printf("Added player\n")
 	}
 	allPlayers := solver.CreatePlayersArrays()
 	if allPlayers == nil {
 		fmt.Println("ERROR")
 	}
-//	fmt.Printf("All Players = %v\n", allPlayers)
 	startTime := time.Now()
 	winningRoster := solver.CreateRosters()
 	elapsed := time.Since(startTime)
