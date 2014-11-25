@@ -11,16 +11,15 @@ import (
 
 func main() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
+
 	fmt.Printf("CPUS = %v\n", runtime.NumCPU())
 
-//	file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/simpleTestFile.txt")
+	file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/output10.txt")
+//file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/bigger_dirt.txt")
 
-	//file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/output_top5pts.txt")
 
+// file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/dirt.txt")
 
-//	file, err := os.Open("/Users/ndborkedaunt/Downloads/fanduel/dirt.txt")
-
-	file, err := os.Open("/Users/ndborkedaunt/Downloads/google-compute-engine/in.txt")
 
 	if err != nil {
 		panic(err)
