@@ -29,7 +29,7 @@ func main() {
 	}
 	fmt.Println(listOfPlayers)
 	startTime := time.Now()
-	winningRoster := solver.CreateSimplexRoster()
+	winningRoster := solver.CreateSimplexRoster(listOfPlayers)
 	elapsed := time.Since(startTime)
 //	winningPoints := solver.PointsForRoster(winningRoster)
 
