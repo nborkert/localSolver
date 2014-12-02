@@ -10,11 +10,6 @@ import (
 )
 
 func main() {
-
-	runtime.GOMAXPROCS(runtime.NumCPU())
-
-	fmt.Printf("CPUS = %v\n", runtime.NumCPU())
-
 	file, err := os.Open(os.Args[1])
 
 	if err != nil {
