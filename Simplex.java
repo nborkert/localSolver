@@ -39,6 +39,26 @@ public class Simplex {
         basis = new int[M];
         for (int i = 0; i < M; i++) basis[i] = N + i;
 
+
+//this is just moving the show() method
+	System.out.println("M = " + M);
+        System.out.println("N = " + N);
+        for (int i = 0; i <= M; i++) {
+            for (int j = 0; j <= M + N; j++) {
+                System.out.printf("%7.2f ", a[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println("value = " + value());
+        for (int i = 0; i < M; i++)
+            if (basis[i] < N) System.out.println("x_" + basis[i] + " = " + a[i][M+N]);
+        System.out.println();
+
+
+
+
+
+
         solve();
 
         // check optimality conditions
@@ -364,6 +384,7 @@ public class Simplex {
             { 35.0, 20.0 },
         };
         test(A, b, c);
+	
     }
 
     // unbounded
@@ -394,15 +415,17 @@ public class Simplex {
     // test client
     public static void main(String[] args) {
 
-	
+/*	
         try                           { test1();             }
         catch (ArithmeticException e) { e.printStackTrace(); }
         System.out.println("--------------------------------");
+*/
 
         try                           { test2();             }
         catch (ArithmeticException e) { e.printStackTrace(); }
         System.out.println("--------------------------------");
 
+/*
         try                           { test3();             }
         catch (ArithmeticException e) { e.printStackTrace(); }
         System.out.println("--------------------------------");
@@ -423,7 +446,7 @@ public class Simplex {
 
 
 
-/*
+
         int M = Integer.parseInt(args[0]);
         int N = Integer.parseInt(args[1]);
         double[] c = new double[N];
