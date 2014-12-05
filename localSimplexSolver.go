@@ -27,14 +27,13 @@ func main() {
 //		fmt.Printf("Created player %v\n", player)
 		listOfPlayers = solver.AddPlayerToSingleList(player)
 	}
-	fmt.Println(listOfPlayers)
+//	fmt.Println(listOfPlayers)
 	startTime := time.Now()
 	winningRoster := solver.CreateSimplexRoster(listOfPlayers)
 	elapsed := time.Since(startTime)
-//	winningPoints := solver.PointsForRoster(winningRoster)
 
 	fmt.Printf("Winning roster is %v\n", winningRoster)
-//	fmt.Printf("Winning points total is %v\n", winningPoints)
-//	fmt.Printf("Winning roster salary is %v\n", solver.RosterSalary(winningRoster))
+	fmt.Printf("Winning points total is %v\n", solver.PointsForRoster(winningRoster))
+	fmt.Printf("Winning roster salary is %v\n", solver.RosterSalary(winningRoster))
 	fmt.Printf("Time required to find winning roster = %v\n", elapsed)
 }

@@ -6,14 +6,15 @@ import (
 	"fmt"
 	"solver"
 	"time"
-	"runtime"
+//	"runtime"
+	"strconv"
 )
 
 func main() {
 
-	runtime.GOMAXPROCS(runtime.NumCPU())
+//	runtime.GOMAXPROCS(runtime.NumCPU())
 
-	fmt.Printf("CPUS = %v\n", runtime.NumCPU())
+//	fmt.Printf("CPUS = %v\n", runtime.NumCPU())
 
 	file, err := os.Open(os.Args[1])
 
@@ -22,7 +23,8 @@ func main() {
 	}
 
 	defer file.Close()
-
+	var minPoints float64
+	minPoints, _ = strconv.ParseFloat(os.Args[2], 64)
 	scanner := bufio.NewScanner(file)
 	scanner.Split(bufio.ScanLines)
 
@@ -33,14 +35,17 @@ func main() {
 //		fmt.Printf("Created player %v\n", player)
 		solver.AddPlayerToPopulation(player)
 	}
-	allPlayers := solver.CreatePlayersArrays()
+	allPlayers := solver.CreatePlayersArraysForQBWR()
 	if allPlayers == nil {
 		fmt.Println("ERROR")
 	}
 //	fmt.Println(allPlayers)
 	startTime := time.Now()
-//	winningRoster := solver.CreateRosters()
-	winningRoster := solver.CreateSimplexRoster()
+	//winningRoster := solver.CreateRosters()
+
+	winningRoster := solver.CreateRostersForQBWR(minPoints)
+
+//	winningRoster := solver.CreateSimplexRoster()
 	elapsed := time.Since(startTime)
 	winningPoints := solver.PointsForRoster(winningRoster)
 	fmt.Printf("Winning roster is %v\n", winningRoster)
