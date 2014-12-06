@@ -35,10 +35,7 @@ func main() {
 //		fmt.Printf("Created player %v\n", player)
 		solver.AddPlayerToPopulation(player)
 	}
-	//allPlayers := solver.CreatePlayersArraysForQBWR()
-
 	allPlayers := solver.CreatePlayersArrays()
-
 
 	if allPlayers == nil {
 		fmt.Println("ERROR")
@@ -46,7 +43,6 @@ func main() {
 //	fmt.Println(allPlayers)
 //	startTime := time.Now()
 	winningRoster := solver.CreateRosters(minPoints)
-	//winningRoster := solver.CreateRostersForQBWR(minPoints)
 
 	if winningRoster == nil {
 		fmt.Println("ERROR reading winning Roster")
