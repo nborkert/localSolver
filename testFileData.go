@@ -41,7 +41,7 @@ func main() {
 	}
 //	fmt.Println(allPlayers)
 	startTime := time.Now()
-	//winningRoster := solver.CreateRosters()
+	//winningRoster := solver.CreateRosters(minPOints)
 
 	winningRoster := solver.CreateRostersForQBWR(minPoints)
 
