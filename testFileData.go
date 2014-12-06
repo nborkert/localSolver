@@ -5,7 +5,7 @@ import (
 	"os"
 	"fmt"
 	"solver"
-	"time"
+//	"time"
 //	"runtime"
 	"strconv"
 )
@@ -35,21 +35,28 @@ func main() {
 //		fmt.Printf("Created player %v\n", player)
 		solver.AddPlayerToPopulation(player)
 	}
-	allPlayers := solver.CreatePlayersArraysForQBWR()
+	//allPlayers := solver.CreatePlayersArraysForQBWR()
+
+	allPlayers := solver.CreatePlayersArrays()
+
+
 	if allPlayers == nil {
 		fmt.Println("ERROR")
 	}
 //	fmt.Println(allPlayers)
-	startTime := time.Now()
-	//winningRoster := solver.CreateRosters(minPOints)
+//	startTime := time.Now()
+	winningRoster := solver.CreateRosters(minPoints)
+	//winningRoster := solver.CreateRostersForQBWR(minPoints)
 
-	winningRoster := solver.CreateRostersForQBWR(minPoints)
+	if winningRoster == nil {
+		fmt.Println("ERROR reading winning Roster")
+	}
 
 //	winningRoster := solver.CreateSimplexRoster()
-	elapsed := time.Since(startTime)
-	winningPoints := solver.PointsForRoster(winningRoster)
-	fmt.Printf("Winning roster is %v\n", winningRoster)
-	fmt.Printf("Winning points total is %v\n", winningPoints)
-	fmt.Printf("Winning roster salary is %v\n", solver.RosterSalary(winningRoster))
-	fmt.Printf("Time required to find winning roster = %v\n", elapsed)
+//	elapsed := time.Since(startTime)
+//	winningPoints := solver.PointsForRoster(winningRoster)
+//	fmt.Printf("Winning roster is %v\n", winningRoster)
+//	fmt.Printf("Winning points total is %v\n", winningPoints)
+//	fmt.Printf("Winning roster salary is %v\n", solver.RosterSalary(winningRoster))
+//	fmt.Printf("Time required to find winning roster = %v\n", elapsed)
 }
