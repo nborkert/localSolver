@@ -40,7 +40,7 @@ func main() {
 	if allPlayers == nil {
 		fmt.Println("ERROR")
 	}
-//	fmt.Println(allPlayers)
+	//fmt.Println(allPlayers)
 //	startTime := time.Now()
 	winningRoster := solver.CreateRosters(minPoints)
 
