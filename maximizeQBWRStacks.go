@@ -5,15 +5,27 @@ import (
 	"fmt"
 	"os"
 	"solver"
-	//	"time"
-	//	"runtime"
-	//	"strconv"
+	"sort"
 )
 
 type QBWRStack struct {
 	PlayerNames string
 	Team        string
 	Value       float64
+}
+
+type ByVal []QBWRStack
+
+func (this ByVal) Len() int {
+	return len(this)
+}
+
+func (this ByVal) Less(i, j int) bool {
+	return this[i].Value > this[j].Value
+}
+
+func (this ByVal) Swap(i, j int) {
+	this[i], this[j] = this[j], this[i]
 }
 
 func main() {
@@ -42,13 +54,15 @@ func main() {
 		if player.Position == "QB" {
 			for _, WR := range allPlayers {
 				if WR.Position == "WR" && player.Team == WR.Team {
-					stack := QBWRStack{player.PlayerName + WR.PlayerName, player.Team, (player.ProjectedPoints + WR.ProjectedPoints) / float64(player.Salary + WR.Salary)}
+					stack := QBWRStack{player.PlayerName + WR.PlayerName, player.Team, (player.ProjectedPoints + WR.ProjectedPoints) / float64(player.Salary+WR.Salary)}
 					//fmt.Println(stack)
 					stacks = append(stacks, stack)
 				}
 			}
 		}
 	}
+
+	sort.Sort(ByVal(stacks))
 
 	for _, stack := range stacks {
 		fmt.Println(stack)
