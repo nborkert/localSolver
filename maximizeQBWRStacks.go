@@ -2,11 +2,11 @@ package main
 
 import (
 	"bufio"
-	"strconv"
 	"fmt"
 	"os"
 	"solver"
 	"sort"
+	"strconv"
 )
 
 type QBWRStack struct {
@@ -66,6 +66,6 @@ func main() {
 	sort.Sort(ByVal(stacks))
 
 	for _, stack := range stacks {
-		fmt.Println(stack.PlayerNames + " , value = "+ strconv.FormatFloat(stack.Value, 'f', 6, 64))
+		fmt.Println(stack.PlayerNames + " , value = " + strconv.FormatFloat(stack.Value, 'f', 6, 64))
 	}
 }
