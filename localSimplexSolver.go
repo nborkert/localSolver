@@ -2,8 +2,8 @@ package main
 
 import (
 	"bufio"
-	"os"
 	"fmt"
+	"os"
 	"solver"
 	"time"
 )
@@ -22,12 +22,12 @@ func main() {
 	var listOfPlayers []solver.Player
 	for scanner.Scan() {
 		newLine := scanner.Text()
-//		fmt.Println(newLine)
+		//		fmt.Println(newLine)
 		player := solver.CreatePlayer(newLine)
-//		fmt.Printf("Created player %v\n", player)
+		//		fmt.Printf("Created player %v\n", player)
 		listOfPlayers = solver.AddPlayerToSingleList(player)
 	}
-//	fmt.Println(listOfPlayers)
+	//	fmt.Println(listOfPlayers)
 	startTime := time.Now()
 	winningRoster := solver.CreateSimplexRoster(listOfPlayers)
 	elapsed := time.Since(startTime)
