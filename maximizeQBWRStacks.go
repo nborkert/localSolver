@@ -9,14 +9,14 @@ import (
 	"strconv"
 )
 
-type QBWRStack struct {
+type PlayerStack struct {
 	PlayerNames     string
 	Team            string
 	ProjectedPoints float64
 	Value           float64
 }
 
-type ByVal []QBWRStack
+type ByVal []PlayerStack
 
 func (this ByVal) Len() int {
 	return len(this)
@@ -30,7 +30,7 @@ func (this ByVal) Swap(i, j int) {
 	this[i], this[j] = this[j], this[i]
 }
 
-type ByPoints []QBWRStack
+type ByPoints []PlayerStack
 
 func (this ByPoints) Len() int {
 	return len(this)
@@ -64,13 +64,13 @@ func main() {
 
 	//Build stacks. Loop over array of players, picking QBs,
 	//then relooping and finding WRs on same team
-	stacks := make([]QBWRStack, 0)
+	stacks := make([]PlayerStack, 0)
 	for _, player := range allPlayers {
 		//fmt.Println("Player = ", player)
 		if player.Position == "QB" {
 			for _, WR := range allPlayers {
 				if WR.Position == "WR" && player.Team == WR.Team {
-					stack := QBWRStack{player.PlayerName + " + " + WR.PlayerName, player.Team, player.ProjectedPoints + WR.ProjectedPoints, (player.ProjectedPoints + WR.ProjectedPoints) / float64(player.Salary+WR.Salary)}
+					stack := PlayerStack{player.PlayerName + " + " + WR.PlayerName, player.Team, player.ProjectedPoints + WR.ProjectedPoints, (player.ProjectedPoints + WR.ProjectedPoints) / float64(player.Salary+WR.Salary)}
 					//fmt.Println(stack)
 					stacks = append(stacks, stack)
 				}
