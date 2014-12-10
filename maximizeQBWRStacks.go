@@ -10,10 +10,10 @@ import (
 )
 
 type QBWRStack struct {
-	PlayerNames string
-	Team        string
+	PlayerNames     string
+	Team            string
 	ProjectedPoints float64
-	Value       float64
+	Value           float64
 }
 
 type ByVal []QBWRStack
@@ -88,6 +88,6 @@ func main() {
 	fmt.Println("*************************")
 	fmt.Println("Stacks by projected points:")
 	for _, stack := range stacks {
-		fmt.Println(stack.PlayerNames +", projected points = "+strconv.FormatFloat(stack.ProjectedPoints, 'f', 6, 64))
+		fmt.Println(stack.PlayerNames + ", projected points = " + strconv.FormatFloat(stack.ProjectedPoints, 'f', 6, 64))
 	}
 }
