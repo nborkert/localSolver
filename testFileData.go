@@ -28,10 +28,7 @@ func main() {
 	if err != nil {
 		fmt.Println("Usage: testFileData <inputFile> <minPoints>")
 		fmt.Println("If <minPoints> is omitted, a value of 0.0 will be used for minPoints")
-	}
-
-	if min == nil {
-		minPoints = 0
+		minPoints = 0.0
 	}
 
 	scanner := bufio.NewScanner(file)
