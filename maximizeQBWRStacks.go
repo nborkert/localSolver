@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"strconv"
 	"fmt"
 	"os"
 	"solver"
@@ -54,7 +55,7 @@ func main() {
 		if player.Position == "QB" {
 			for _, WR := range allPlayers {
 				if WR.Position == "WR" && player.Team == WR.Team {
-					stack := QBWRStack{player.PlayerName + WR.PlayerName, player.Team, (player.ProjectedPoints + WR.ProjectedPoints) / float64(player.Salary+WR.Salary)}
+					stack := QBWRStack{player.PlayerName + " + " + WR.PlayerName, player.Team, (player.ProjectedPoints + WR.ProjectedPoints) / float64(player.Salary+WR.Salary)}
 					//fmt.Println(stack)
 					stacks = append(stacks, stack)
 				}
@@ -65,6 +66,6 @@ func main() {
 	sort.Sort(ByVal(stacks))
 
 	for _, stack := range stacks {
-		fmt.Println(stack)
+		fmt.Println(stack.PlayerNames + " , value = "+ strconv.FormatFloat(stack.Value, 'f', 6, 64))
 	}
 }
