@@ -38,7 +38,7 @@ func main() {
 				continue
 			}
 			if player.Team != stackedPlayer.Team {
-				stack := solver.PlayerStack{player.PlayerName + " + " + stackedPlayer.PlayerName, player.Team + "," + stackedPlayer.Team, player.ProjectedPoints + stackedPlayer.ProjectedPoints, (player.ProjectedPoints + stackedPlayer.ProjectedPoints) / float64(player.Salary+stackedPlayer.Salary)}
+				stack := solver.PlayerStack{player.PlayerName + " + " + stackedPlayer.PlayerName, player.Team + "," + stackedPlayer.Team, player.ProjectedPoints + stackedPlayer.ProjectedPoints, (player.ProjectedPoints + stackedPlayer.ProjectedPoints) / float64(player.Salary+stackedPlayer.Salary), player.Salary + stackedPlayer.Salary}
 				//fmt.Println(stack)
 				stacks = append(stacks, stack)
 			}
@@ -49,13 +49,13 @@ func main() {
 
 	fmt.Println("Stacks by value:")
 	for _, stack := range stacks {
-		fmt.Println(stack.PlayerNames + ", " + stack.Team + ", value = " + strconv.FormatFloat(stack.Value, 'f', 6, 64))
+		fmt.Println(stack.PlayerNames + ", " + stack.Team + ", value = " + strconv.FormatFloat(stack.Value, 'f', 6, 64)+ ", salary = " + strconv.Itoa(stack.Salary))
 	}
 
 	sort.Sort(solver.ByPoints(stacks))
 	fmt.Println("****************************")
 	fmt.Println("Stacks by projected points:")
 	for _, stack := range stacks {
-		fmt.Println(stack.PlayerNames + ", " + stack.Team + ", projected points = " + strconv.FormatFloat(stack.ProjectedPoints, 'f', 6, 64))
+		fmt.Println(stack.PlayerNames + ", " + stack.Team + ", projected points = " + strconv.FormatFloat(stack.ProjectedPoints, 'f', 6, 64)+ ", salary = " + strconv.Itoa(stack.Salary))
 	}
 }
