@@ -48,10 +48,10 @@ func main() {
 	for _, stack := range stacks {
 		fmt.Println(stack.PlayerNames + ", value = " + strconv.FormatFloat(stack.Value, 'f', 6, 64) + ", salary = " + strconv.Itoa(stack.Salary))
 	}
-
+*/
 	sort.Sort(solver.ByPoints(stacks))
-	fmt.Println("*************************")
-	*/
+//	fmt.Println("*************************")
+
 	fmt.Println("Stacks by projected points:")
 	fmt.Println("Names,points,salary")
 	for _, stack := range stacks {
