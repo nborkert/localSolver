@@ -42,17 +42,19 @@ func main() {
 			}
 		}
 	}
-
+/*
 	sort.Sort(solver.ByVal(stacks))
 	fmt.Println("Stacks by value:")
 	for _, stack := range stacks {
-		fmt.Println(stack.PlayerNames + ", value = " + strconv.FormatFloat(stack.Value, 'f', 6, 64)+ ", salary = " + strconv.Itoa(stack.Salary))
+		fmt.Println(stack.PlayerNames + ", value = " + strconv.FormatFloat(stack.Value, 'f', 6, 64) + ", salary = " + strconv.Itoa(stack.Salary))
 	}
 
 	sort.Sort(solver.ByPoints(stacks))
 	fmt.Println("*************************")
+	*/
 	fmt.Println("Stacks by projected points:")
+	fmt.Println("Names,points,salary")
 	for _, stack := range stacks {
-		fmt.Println(stack.PlayerNames + ", projected points = " + strconv.FormatFloat(stack.ProjectedPoints, 'f', 6, 64)+ ", salary = " + strconv.Itoa(stack.Salary))
+		fmt.Println(stack.PlayerNames + "," + strconv.FormatFloat(stack.ProjectedPoints, 'f', 6, 64) + "," + strconv.Itoa(stack.Salary))
 	}
 }
