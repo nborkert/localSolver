@@ -9,6 +9,7 @@ import (
 	"strconv"
 )
 
+// RB input file must be first argument and WR input file the second argument
 func main() {
 	RBfile, err := os.Open(os.Args[1])
 
