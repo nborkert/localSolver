@@ -9,8 +9,6 @@ import (
 	"strconv"
 )
 
-//dummy comment
-
 func main() {
 	file, err := os.Open(os.Args[1])
 
