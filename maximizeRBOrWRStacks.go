@@ -9,6 +9,7 @@ import (
 	"strconv"
 )
 
+//Input file lists both RBs and WRs, order doesn't matter
 func main() {
 	file, err := os.Open(os.Args[1])
 
@@ -39,7 +40,6 @@ func main() {
 			}
 			if player.Team != stackedPlayer.Team {
 				stack := solver.PlayerStack{player.PlayerName + " + " + stackedPlayer.PlayerName, player.Team + "," + stackedPlayer.Team, player.ProjectedPoints + stackedPlayer.ProjectedPoints, (player.ProjectedPoints + stackedPlayer.ProjectedPoints) / float64(player.Salary+stackedPlayer.Salary), player.Salary + stackedPlayer.Salary}
-				//fmt.Println(stack)
 				stacks = append(stacks, stack)
 			}
 		}
@@ -53,7 +53,6 @@ func main() {
 	}
 */
 	sort.Sort(solver.ByPoints(stacks))
-//	fmt.Println("****************************")
 	fmt.Println("Stacks by projected points:")
 	fmt.Println("Name,points,salary")
 	for _, stack := range stacks {

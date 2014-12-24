@@ -50,7 +50,6 @@ func main() {
 	for _, RB := range allRBs {
 		for _, WR := range allWRs {
 			stack := solver.PlayerStack{RB.PlayerName + " + " + WR.PlayerName, RB.Team + ":" + WR.Team, RB.ProjectedPoints + WR.ProjectedPoints, (RB.ProjectedPoints + WR.ProjectedPoints) / float64(RB.Salary+WR.Salary), RB.Salary + WR.Salary}
-				//fmt.Println(stack)
 				stacks = append(stacks, stack)
 		}
 	}
@@ -63,7 +62,6 @@ func main() {
 	}
 */
 	sort.Sort(solver.ByPoints(stacks))
-//	fmt.Println("****************************")
 	fmt.Println("Stacks by projected points:")
 	fmt.Println("Names,teams,points,salary")
 	for _, stack := range stacks {
